@@ -1,6 +1,55 @@
 /* Buttons */
 /* Inputs */
 /* Timeline custom component */
+/* Visit https://nicolaskadis.info/posts/pure-css-flip-cards-using-bootstrap-4-and-css-grid-no-js for an explanation */
+
+/* for demo purposes */
+.card {
+  margin: 10px , 10px;
+
+
+}
+
+/* Flip Cards CSS */
+.card-container {
+  display: grid;
+  padding-right: 610 px;
+  padding-bottom: 30px;
+  perspective: 700px;
+  
+}
+
+.card-flip {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  grid-template-areas: "frontAndBack";
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
+}
+
+.card-flip div {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.front {
+  grid-area: frontAndBack;
+}
+
+.back {
+  grid-area: frontAndBack;
+  transform: rotateY(-180deg);
+  background-color: #8EC5FC;
+  margin-left: 1px;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  
+}
+
+.card-container:hover .card-flip {
+  transform: rotateY(180deg);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
 .timeline {
   border-left: 2px solid #E6E9ED;
   padding: 1rem 0; }
